@@ -7,6 +7,7 @@ A device running a linux-based distribution (e.g., Ubuntu 22.04) with the follow
 * [docker](https://docs.docker.com/get-docker/);
 * [docker-compose](https://docs.docker.com/compose/install/);
 * [python3](https://www.python.org/downloads/) (version 3.8 or later);
+* [openjdk](https://openjdk.org/) (Java 11+);
 
 The following Python3 packages must be installed thorugh, e.g., pip3:
 * [locust](https://docs.locust.io/en/stable/installation.html);
@@ -18,6 +19,11 @@ The following Python3 packages must be installed thorugh, e.g., pip3:
 Download in this directory:
 * ACME by cloning https://github.com/stfbk/ACME/tree/CryptoAC_IoT_Evaluation/ (note that the branch is not "main" but "CryptoAC_IoT_Evaluation"; after cloning, remember to run `git checkout CryptoAC_IoT_Evaluation`)
 * CryptoAFC by cloning https://github.com/stfbk/CryptoAC/tree/CryptoAC_IoT_Evaluation/ (note that the branch is not "main" but "CryptoAC_IoT_Evaluation"; after cloning, remember to run `git checkout CryptoAC_IoT_Evaluation`)
+
+Generate the TLS certificate for the MQTT broker:
+* go to `CryptoAC/docs/source/gettingstarted/installation/DMInterfaceMQTT/`;
+* run `./createCertificates.sh` (this command requires `keytool` from the OpenJDK); whenever you need to insert a pass phrase, insert the passphrase `password` (without quotes); leave all other (optional) fields as they are. Finally, answer `yes` to the question `Trust this certificate? [no]:`.
+
 
 
 # SCENARIO GENERATION
@@ -34,7 +40,8 @@ Download in this directory:
 1. Enable and disable TLS:
     * go to the file `ACME/simulator/adapters/CryptoAC/CryptoACRBACMQTT.py`;
     * search in the file for the following string `"tls":`;
-    * set the value of `"tls":` to either `True` (i.e., enable TLS) or `False` (i.e., disable TLS).
+    * to enable TLS, set the value of `"tls":` to `True` and replace the port 1883 with 1884;
+    * to disable TLS, set the value of `"tls":` to `False` and replace the port 1884 with 1883;
 2. Enable and disable Cryptographic Access Control (CAC):
     * go to the file `ACME/simulator/adapters/CryptoAC/CryptoACRBAC.py`;
     * to disable CAC, replace all occurrences of the word `COMBINED` with `TRADITIONAL`;
