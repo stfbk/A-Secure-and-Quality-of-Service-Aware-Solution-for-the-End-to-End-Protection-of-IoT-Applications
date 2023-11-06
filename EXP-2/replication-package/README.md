@@ -9,7 +9,7 @@ A device running a linux-based distribution (e.g., Ubuntu 22.04) with the follow
 * [python3](https://www.python.org/downloads/) (version 3.8 or later);
 * [openjdk](https://openjdk.org/) (Java 11+);
 
-The following Python3 packages must be installed thorugh, e.g., pip3:
+The following Python3 packages must be installed thorugh, e.g., pip3. Ensure that all packages are up to date:
 * [locust](https://docs.locust.io/en/stable/installation.html);
 * [names](https://pypi.org/project/names/);
 * [websocket-client](https://github.com/websocket-client/websocket-client);
