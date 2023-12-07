@@ -172,7 +172,7 @@ printf "    -t ${MINUTES}m \\" >> "$MASTERLAUNCHERFILE"
 printf "\n" >> "$MASTERLAUNCHERFILE"
 printf "    -u $USERS \\" >> "$MASTERLAUNCHERFILE"
 printf "\n" >> "$MASTERLAUNCHERFILE"
-printf "    -r 5\n" >> "$MASTERLAUNCHERFILE"
+printf "    -r 100\n" >> "$MASTERLAUNCHERFILE"
 
 
 
