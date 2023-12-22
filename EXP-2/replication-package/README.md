@@ -27,7 +27,7 @@ Generate the TLS certificate for the MQTT broker:
 
 
 # SCENARIO GENERATION
-1. run `./scenarioGenerator.sh <|pub|> <|sub|> <|topics|> <|minutes|> <|size|>`, where `<|pub|>` is the number of publishers, `<|sub|>` is the number of subscribers, `<|topics|>` is the number of topics, `<|minutes|>` the number of minutes the experiment will last, `<|size|>` the size of MQTT messages (in bytes). Publishers -- as well as subscribers -- are equally divided based on the number of topics. For instance:
+1. run `./scenarioGenerator.sh <|pub|> <|sub|> <|topics|> <|messages|> <|size|>`, where `<|pub|>` is the number of publishers, `<|sub|>` is the number of subscribers, `<|topics|>` is the number of topics, `<|messages|>` the number of messages each publisher will send, `<|size|>` the size of MQTT messages (in bytes). Publishers -- as well as subscribers -- are equally divided based on the number of topics. For instance:
 * if `<|pub|>=4` and `<|topics|>=2`, then each topic will have two publishers;
 * if `<|pub|>=5` and `<|topics|>=2`, then the first topic will have three publishers, while the second topic will have two publishers;
 * if `<|pub|>=2` and `<|topics|>=5`, then the first publisher will have three topics, while the second publisher will have two topics.
@@ -54,7 +54,7 @@ Generate the TLS certificate for the MQTT broker:
 
 
 # SCENARIO LAUNCHING
-1. run `./scenarioGetLaunchers.sh <|pub|> <|sub|> <|topics|> <|minutes|> <|size|>` to get in console the commands tailored for your scenario.
+1. run `./scenarioGetLaunchers.sh <|pub|> <|sub|> <|topics|> <|messages|> <|size|>` to get in console the commands tailored for your scenario.
 
     > Example: `./scenarioGetLaunchers.sh 1 1 1 1 1024`
 
@@ -74,14 +74,14 @@ Generate the TLS certificate for the MQTT broker:
 
 
     E_4. Launch Locust Master
-    cd ./launchers && chmod +x ./launcherMaster_1publishers1subscribers1minutes.sh && ./launcherMaster_1publishers1subscribers1minutes.sh
+    cd ./launchers && chmod +x ./launcherMaster_1publishers1subscribers1messages.sh && ./launcherMaster_1publishers1subscribers1messages.sh
 
 
     E_5. Launch Locust Clients
     cd ./launchers && chmod +x launcherClients_1publishers1subscribers.sh && ./launcherClients_1publishers1subscribers.sh
     ```
 
-2. Once all workers started, the experimentation starts automatically. You should be able to see in real-time the results of the experimentation at 'http://0.0.0.0:8089/'. The experimentation ends in `<|minutes|>` minutes; collect the results from the UI ("Download Data" tab, "Download request statistics CSV" link). Data of MQTT messages are in the second column of the CSV (column "Name"), and strings in each row contain the following information separated by an underscore character ("_"):
+2. Once all workers started, the experimentation starts automatically. You should be able to see in real-time the results of the experimentation at 'http://0.0.0.0:8089/'. The experimentation ends when each publisher sent `<|messages|>` messages; collect the results from the UI ("Download Data" tab, "Download request statistics CSV" link). Data of MQTT messages are in the second column of the CSV (column "Name"), and strings in each row contain the following information separated by an underscore character ("_"):
 - publisher name;
 - subscriber name;
 - topic name;

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Number of publishers, subscribers, topics, minutes
+# Number of publishers, subscribers, topics, messages
 PUBLISHERS=$1
 SUBSCRIBERS=$2
 TOPICS=$3
-MINUTES=$4
+MESSAGES=$4
 BYTES=$5
 
 
@@ -26,7 +26,7 @@ STATEFILE="state_"$USERS"users_"$TOPICS"topics.json"
 CLIENTSLAUNCHERFILE="launcherClients_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers.sh"
 
 # Master (locust master) launcher file
-MASTERLAUNCHERFILE="launcherMaster_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers"$MINUTES"minutes.sh"
+MASTERLAUNCHERFILE="launcherMaster_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers"$MESSAGES"messages.sh"
 
 # Initializer launcher
 INITIALIZERLAUNCHERFILE="launcherInitializer_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers"$TOPICS"topics.sh"

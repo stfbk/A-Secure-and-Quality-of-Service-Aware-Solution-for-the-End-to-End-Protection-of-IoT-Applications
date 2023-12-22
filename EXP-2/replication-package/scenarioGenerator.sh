@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Number of publishers, subscribers, topics, minutes
+# Number of publishers, subscribers, topics, messages
 PUBLISHERS=$1
 SUBSCRIBERS=$2
 TOPICS=$3
-MINUTES=$4
+MESSAGES=$4
 BYTES=$5
 
 
@@ -26,7 +26,7 @@ STATEFILE="state_"$USERS"users_"$TOPICS"topics.json"
 CLIENTSLAUNCHERFILE="launcherClients_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers.sh"
 
 # Master (locust master) launcher file
-MASTERLAUNCHERFILE="launcherMaster_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers"$MINUTES"minutes.sh"
+MASTERLAUNCHERFILE="launcherMaster_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers"$MESSAGES"messages.sh"
 
 # Initializer launcher
 INITIALIZERLAUNCHERFILE="launcherInitializer_"$PUBLISHERS"publishers"$SUBSCRIBERS"subscribers"$TOPICS"topics.sh"
@@ -46,7 +46,7 @@ cd workflows/ && chmod +x ./workflowsGenerator.sh && ./workflowsGenerator.sh $TO
 cd states/ && chmod +x ./stateGenerator.sh && ./stateGenerator.sh $USERS $TOPICS "$STATEFILE" && cd ..
 
 # S_4. Generate the client laucnher file
-cd launchers/ && chmod +x ./launchersGenerator.sh && ./launchersGenerator.sh $PUBLISHERS $SUBSCRIBERS $TOPICS "$MASTERLAUNCHERFILE" "$CLIENTSLAUNCHERFILE" "$STATEFILE" "$INITIALIZERLAUNCHERFILE" "$WORKFLOWBASEFILE" $MINUTES && cd ..
+cd launchers/ && chmod +x ./launchersGenerator.sh && ./launchersGenerator.sh $PUBLISHERS $SUBSCRIBERS $TOPICS "$MASTERLAUNCHERFILE" "$CLIENTSLAUNCHERFILE" "$STATEFILE" "$INITIALIZERLAUNCHERFILE" "$WORKFLOWBASEFILE" $MESSAGES && cd ..
 
 # S_5. Generate the started script for CryptoAC
 cd scripts/ && chmod +x ./starterScriptGenerator.sh && ./starterScriptGenerator.sh "$STARTERFILE" "$COMPOSEFILE" && cd ..

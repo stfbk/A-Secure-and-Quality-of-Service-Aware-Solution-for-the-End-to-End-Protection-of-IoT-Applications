@@ -8,7 +8,7 @@ CLIENTSLAUNCHERFILE=$5
 STATEFILE=$6
 INITIALIZERLAUNCHERFILE=$7
 WORKFLOWBASEFILE=$8
-MINUTES=$9
+MESSAGES=$9
 
 USERS=$(($PUBLISHERS+$SUBSCRIBERS))
 
@@ -47,7 +47,7 @@ for i in $(seq 1 $PUBLISHERS); do
 
   port=$((40001+$i))
 
-  printf "    env operations=\"$workflowFilesPUB\" host=https://127.0.0.1:$port locust -f ../ACME/simulator/Engine.py \\" >> "$CLIENTSLAUNCHERFILE"
+  printf "    env iterations=${MESSAGES} operations=\"$workflowFilesPUB\" host=https://127.0.0.1:$port locust -f ../ACME/simulator/Engine.py \\" >> "$CLIENTSLAUNCHERFILE"
   printf "\n" >> "$CLIENTSLAUNCHERFILE"
   printf "        --operations=\"$workflowFilesPUB\" \\" >> "$CLIENTSLAUNCHERFILE"
   printf "\n" >> "$CLIENTSLAUNCHERFILE"
@@ -167,8 +167,6 @@ printf "\n" >> "$MASTERLAUNCHERFILE"
 printf "    --numberOfWorkers=$USERS \\" >> "$MASTERLAUNCHERFILE"
 printf "\n" >> "$MASTERLAUNCHERFILE"
 printf "    --master-bind-port=5557 \\" >> "$MASTERLAUNCHERFILE"
-printf "\n" >> "$MASTERLAUNCHERFILE"
-printf "    -t ${MINUTES}m \\" >> "$MASTERLAUNCHERFILE"
 printf "\n" >> "$MASTERLAUNCHERFILE"
 printf "    -u $USERS \\" >> "$MASTERLAUNCHERFILE"
 printf "\n" >> "$MASTERLAUNCHERFILE"

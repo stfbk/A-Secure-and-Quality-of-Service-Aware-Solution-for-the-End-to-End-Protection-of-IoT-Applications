@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Number of publishers, subscribers, topics, minutes
+# Number of publishers, subscribers, topics, messages
 PUBLISHERS=$1
 SUBSCRIBERS=$2
 TOPICS=$3
-MINUTES=$4
+MESSAGES=$4
 BYTES=$5
 USERS=$(($PUBLISHERS+$SUBSCRIBERS))
 
@@ -21,7 +21,7 @@ echo "cd ./scripts && chmod +x copyprofiles.sh && ./copyprofiles.sh"
 echo ""
 echo ""
 echo "E_4. Launch Locust Master"
-echo "cd ./launchers && chmod +x ./launcherMaster_${PUBLISHERS}publishers${SUBSCRIBERS}subscribers${MINUTES}minutes.sh && ./launcherMaster_${PUBLISHERS}publishers${SUBSCRIBERS}subscribers${MINUTES}minutes.sh"
+echo "cd ./launchers && chmod +x ./launcherMaster_${PUBLISHERS}publishers${SUBSCRIBERS}subscribers${MESSAGES}messages.sh && ./launcherMaster_${PUBLISHERS}publishers${SUBSCRIBERS}subscribers${MESSAGES}messages.sh"
 echo ""
 echo ""
 echo "E_5. Launch Locust Clients"
