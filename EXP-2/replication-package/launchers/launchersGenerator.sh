@@ -170,7 +170,7 @@ printf "    --master-bind-port=5557 \\" >> "$MASTERLAUNCHERFILE"
 printf "\n" >> "$MASTERLAUNCHERFILE"
 printf "    -u $USERS \\" >> "$MASTERLAUNCHERFILE"
 printf "\n" >> "$MASTERLAUNCHERFILE"
-printf "    -r 100\n" >> "$MASTERLAUNCHERFILE"
+printf "    -r ${MESSAGES}\n" >> "$MASTERLAUNCHERFILE"
 
 
 
