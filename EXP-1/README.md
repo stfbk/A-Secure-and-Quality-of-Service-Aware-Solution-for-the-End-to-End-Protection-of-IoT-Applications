@@ -8,7 +8,7 @@ To replicate the experiments, please download **CryptoAC** from the [dedicated r
 ./cleanAllAndBuild.sh && ./startCryptoAC_ALL.sh "cryptoac_redis cryptoac_mosquitto_no_dynsec"
 ```
 
-Then, to run the benchmarks in the [benchmark files](./replication%20package/): 
+Then, to run the benchmarks in the [benchmark files](./replication-package/): 
 * open **CryptoAC** in an IDE — e.g., [IntelliJ Idea](https://www.jetbrains.com/help/idea/get-started-with-kotlin.html);
-* include all the [benchmark files](./replication%20package/) in the `jvmMain` source set (package `benchmark`);
+* include all the [benchmark files](./replication-package/) in the `jvmMain` source set (package `benchmark`);
 * run the benchmarks using [Gradle](https://gradle.org/https://gradle.org/) (i.e., the `benchmark` task).
