@@ -82,7 +82,7 @@ medians = [np.median(d) for d in data]
 fig, ax = plt.subplots()
 
 # Plot the boxplots with whiskers and outliers
-bp = sns.boxplot(data=data, orient='v', ax=ax, palette=colors, width=0.6, showfliers=False, sym='', medianprops={'visible': False}, flierprops={'visible': False, 'marker': 'None'})
+bp = sns.boxplot(data=data, orient='v', ax=ax, palette=colors, width=0.6, showfliers=False, medianprops={'visible': False}, flierprops={'visible': False, 'marker': 'None'})
 #flierprops=){'marker': 'D', 'markerfacecolor': '#95a5a6', 'markeredgecolor': '#95a5a6', 'markersize': 1}
 
 # remove outliers from data
