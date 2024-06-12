@@ -1,4 +1,4 @@
-# Optimizing Security and Quality of Service for End-to-End Cryptographic Access Control in IoT Applications
+# A Secure and Quality of Service-Aware Solution for the End to End Protection of IoT Applications
 
 Internet of Things (IoT) applications generate and exchange a huge amount of — often **sensitive** — data, which are threatened by external attackers, malicious insiders and **honest but curious** Edge and Cloud providers. Hence, the lack of proper security mechanisms may result in the loss of the confidentiality and the integrity of such data, leading to — also depending on the application field (e.g., eHealth, intelligent transportation systems, smart buildings) — **exfiltration of privileged information, violation of critical functions and even life-threatening situations**. Moreover, when security mechanisms are present, they should be configured and deployed to both respect the trust assumptions (e.g., on the presence of certain attackers) and suit the performance goals (e.g., low latency, high scalability) relevant to the underlying scenario. 
 
