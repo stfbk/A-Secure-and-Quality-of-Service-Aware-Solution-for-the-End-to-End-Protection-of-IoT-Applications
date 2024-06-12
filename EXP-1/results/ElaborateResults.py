@@ -73,7 +73,7 @@ with open(baselineFile, 'r') as file:
 data = [cryptoACResults, tlsResults, baselineResults]
 
 # Define colors for the boxplots
-colors = ['#1f77b4', '#ff7f0e', '#2ca02c']
+colors = ['#dddddd', '#dddddd', '#dddddd']
 
 # Calculate the median value for each dataset
 medians = [np.median(d) for d in data]
