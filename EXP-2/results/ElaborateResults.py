@@ -55,6 +55,12 @@ all_colors = [
     '#8e44ad'
 ]
 
+linestyles = [
+    'solid',
+    'dotted',
+    'dashed'
+]
+
 regression_label_coordinates = [
     [15, 2.45],
     [15, 0.90],
@@ -178,7 +184,7 @@ for configuration in all_configurations:
     plt.plot(
         permX, 
         permSlopeRegressionLine, 
-        linestyle = '-',
+        linestyle = linestyles[index],
         color = all_colors[index], 
         linewidth = 1, 
         label = all_configurations[index]
